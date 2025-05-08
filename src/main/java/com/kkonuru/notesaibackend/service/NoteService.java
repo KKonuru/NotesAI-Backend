@@ -19,8 +19,8 @@ public class NoteService {
         return noteRepository.save(note).getId();
     }
 
-    public Note getNote(String id) {
-        Optional<Note> response = noteRepository.findById(id);
+    public Note getNote(String id,String user_id) {
+        Optional<Note> response = noteRepository.findByIdAndUserId(id,user_id);
         return response.orElse(null);
     }
 }
