@@ -8,6 +8,7 @@ import com.clerk.backend_api.models.operations.VerifyClientResponse;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import com.clerk.backend_api.helpers.jwks.AuthenticateRequest;
 import com.clerk.backend_api.helpers.jwks.AuthenticateRequestOptions;
@@ -18,6 +19,8 @@ import java.util.*;
 @Service
 public class ClerkAuthService {
 
+    @Value("${clerk.secret.key}")
+    private String clerkSecretKey;
     public String getUserIdFromToken(HttpServletRequest request) {
 
         Map<String, List<String>> headers = new HashMap<>();
@@ -29,7 +32,7 @@ public class ClerkAuthService {
         RequestState requestState = AuthenticateRequest.authenticateRequest(
                 headers,
                 AuthenticateRequestOptions
-                        .secretKey(System.getenv("CLERK_SECRET_KEY"))
+                        .secretKey(clerkSecretKey)
                         .build()
         );
 

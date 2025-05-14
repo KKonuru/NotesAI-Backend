@@ -5,7 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
 
@@ -18,10 +19,15 @@ public class Note {
 
     @Id
     private String id;
+    @NotBlank
     private String name;
+    @NotBlank
     private String content;
+
     private String userId;
-    private List<String> documentIds;
+    @NotBlank
+    private int numDocuments;
+    @NotBlank
     private Date lastUpdated;
 
 }

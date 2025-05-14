@@ -6,6 +6,7 @@ import com.kkonuru.notesaibackend.repository.NoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -19,8 +20,8 @@ public class NoteService {
         return noteRepository.save(note).getId();
     }
 
-    public Note getNote(String id,String user_id) {
-        Optional<Note> response = noteRepository.findByIdAndUserId(id,user_id);
+    public List<Note> getNotes(String user_id) {
+        Optional<List<Note>> response = noteRepository.findByUserId(user_id);
         return response.orElse(null);
     }
 }
