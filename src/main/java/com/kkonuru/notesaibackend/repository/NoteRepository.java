@@ -10,7 +10,6 @@ import java.util.Optional;
 @Repository
 public interface NoteRepository  extends MongoRepository<Note,String> {
 
-    Optional<Note> findByIdAndUserId(String id, String userId);
 
     Optional<List<Note>> findByUserId(String userId);
 }

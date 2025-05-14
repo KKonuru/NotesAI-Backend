@@ -1,12 +1,6 @@
 package com.kkonuru.notesaibackend.auth;
 
-import com.clerk.backend_api.Clerk;
-import com.clerk.backend_api.models.errors.ClerkErrors;
-import com.clerk.backend_api.models.operations.GetEmailAddressResponse;
-import com.clerk.backend_api.models.operations.VerifyClientRequestBody;
-import com.clerk.backend_api.models.operations.VerifyClientResponse;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

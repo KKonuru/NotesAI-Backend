@@ -6,9 +6,7 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.util.Date;
-import java.util.List;
 
 //Data annotation bundles the features tostring, equals, getter/setter, and required args constructor
 @Data
