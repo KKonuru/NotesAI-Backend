@@ -28,7 +28,6 @@ public class NoteController {
     @PostMapping
     public String save(@Valid @RequestBody Note note, HttpServletRequest request) {
         String userId = clerkAuthService.getUserIdFromToken(request);
-        System.out.println("user id is " + userId);
         note.setUserId(userId);
         return this.noteService.save(note);
     }
